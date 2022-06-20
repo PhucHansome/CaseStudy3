@@ -8,7 +8,7 @@
 </head>
 <style>
     .navbar-custom {
-        background-color: #2b3d51;
+        background-color: #5c7a9c;
         padding: 0 10px 0 0;
         position: fixed;
         left: 0;

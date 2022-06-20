@@ -8,7 +8,7 @@
 </head>
 <style>
     .navbar-custom {
-        background-color: #2b3d51;
+        background-color: #5c7a9c;
         padding: 0 10px 0 0;
         position: fixed;
         left: 0;
@@ -347,7 +347,14 @@
                                     <td>${item.getAddress()}</td>
                                     <td>${item.getRole()}</td>
                                     <td>${item.getCreateDate()}</td>
-                                    <td>${item.getUpdateDate()}</td>
+                                    <td>
+                                            <c:if test="${item.getUpdateDate() == 'null'}">
+                                         <p></p>
+                                            </c:if>
+                                        <c:if test="${item.getUpdateDate() != 'null'}">
+                                            ${item.getUpdateDate()}
+                                        </c:if>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-outline-secondary waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class UploadImage {
     public static String uploadImages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fileName = "null";
+        String fileName = null;
 
         for (Part part : req.getParts()) {
 

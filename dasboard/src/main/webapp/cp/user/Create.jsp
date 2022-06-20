@@ -8,7 +8,7 @@
 </head>
 <style>
     .navbar-custom {
-        background-color: #2b3d51;
+        background-color: #5c7a9c;
         padding: 0 10px 0 0;
         position: fixed;
         left: 0;
@@ -298,18 +298,24 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="" method="post" class="parsley-examples"  enctype="multipart/form-data" data-parsley-validate="" novalidate="">
+                        <form action="" method="post" class="parsley-examples" enctype="multipart/form-data"
+                              data-parsley-validate="" novalidate>
                             <div class="row">
 
                                 <div class="mb-3 col-6">
                                     <label for="userName" class="form-label">User Name<span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="userName" name="userName"value="${userCreate.userName}">
+                                    <input type="text" class="form-control" id="userName" name="userName"
+                                           value="${userCreate.userName}" required>
+                                    <div class="valid-feedback">
+                                        Looks Good
+                                    </div>
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label for="password" class="form-label">Password<span
                                             class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" id="password" name="password" value="${userCreate.password}">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                           value="${userCreate.password}">
                                 </div>
                             </div>
                             <div class="row">
@@ -317,12 +323,14 @@
                                 <div class="mb-3 col-6">
                                     <label for="fullName" class="form-label">Full Name<span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="fullName" name="fullName" value="${userCreate.fullName}">
+                                    <input type="text" class="form-control" id="fullName" name="fullName"
+                                           value="${userCreate.fullName}">
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label for="phone" class="form-label">Phone<span
                                             class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" id="phone" name="phone" value="${userCreate.phone}">
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                           value="${userCreate.phone}">
 
                                 </div>
                             </div>
@@ -331,24 +339,19 @@
                                 <div class="mb-3 col-6">
                                     <label for="email" class="form-label">Email<span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="email" name="email" value="${userCreate.email}">
+                                    <input type="text" class="form-control" id="email" name="email"
+                                           value="${userCreate.email}">
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label for="address" class="form-label">Address<span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="address" name="address" value="${userCreate.address}">
+                                    <input type="text" class="form-control" id="address" name="address"
+                                           value="${userCreate.address}">
                                 </div>
 
                             </div>
                             <div class="row">
-                                <div class="mb-3 col-6">
-                                    <label for="file" class="form-label">Images<span
-                                            class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" id="file" name="file" value="${userCreate.img}">
-                                    <%--                                    <input type="text" readonly value="img">--%>
-
-                                </div>
-                                <div class="mb-3 col-6">
+                                <div class="mb-3 col-12">
                                     <label for="role" class="form-label">Role<span
                                             class="text-danger">*</span></label>
                                     <select name="role" id="role" class="form-control" value="${userCreate.role}">
@@ -356,14 +359,22 @@
                                         <option value="USER">USER</option>
                                     </select>
                                 </div>
-
+                                <div class="mb-3 col-6">
+                                    <label for="file" class="form-label">Images<span
+                                            class="text-danger">*</span></label>
+                                    <input type="file" class="form-control-file" id="file" name="file"
+                                           value="${userCreate.img}">
+                                    <%--                                    <input type="text" readonly value="img">--%>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="form-group text-right mb-0">
-                                    <button class="btn btn-primary waves-effect waves-light mr-1" style="margin-bottom: 10px" type="submit">
+                                    <button class="btn btn-primary waves-effect waves-light mr-1"
+                                            style="margin-bottom: 10px" type="submit">
                                         Submit
                                     </button>
-                                    <button type="reset" class="btn btn-secondary waves-effect" style="margin-bottom: 10px">
+                                    <button type="reset" class="btn btn-secondary waves-effect"
+                                            style="margin-bottom: 10px">
                                         Cancel
                                     </button>
                                 </div>
@@ -372,15 +383,16 @@
                         <div class="row" style="margin-top: 20px">
                             <div class="col-12">
                                 <c:if test="${requestScope['success'] == true}">
-                                        <span class="alert alert-success col-3" style="font-size: 15px">Thêm mới thành công</span>
+                                    <span class="alert alert-success col-3"
+                                          style="font-size: 15px">Thêm mới thành công</span>
                                 </c:if>
                                 <c:if test="${!requestScope['errors'].isEmpty()}">
                                     <c:forEach items="${requestScope['errors']}" var="item">
-                                            <div class="alert alert-danger col-3" style="margin-top: -20px;">
-                                            <span style="font-size: 15px;" >
+                                        <div class="alert alert-danger col-3" style="margin-top: -20px;">
+                                            <span style="font-size: 15px;">
                                                     ${item}
                                             </span>
-                                            </div>
+                                        </div>
                                     </c:forEach>
                                 </c:if>
                             </div>

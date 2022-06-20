@@ -207,6 +207,9 @@ public class CPUserServlet extends HttpServlet {
         }
         if (userService.existsByEmail(email)) {
             errors.add("Email đã tồn tại");
+        }
+        if (!Role.equals("ADMIN") && !Role.equals("USER")){
+            errors.add("Role phải là ADMIN hoặc USER");
         } else if (errors.size() == 0) {
             user = new User(userName, password, fullName, phone, email, address, Role, imageName);
             boolean success = false;

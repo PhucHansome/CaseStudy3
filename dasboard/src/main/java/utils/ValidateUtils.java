@@ -3,7 +3,9 @@ package utils;
 import java.util.regex.Pattern;
 
 public class ValidateUtils {
-    public static final String NUMBER_REGEX =  "\\d+";
+    public static final String NUMBER_REGEX =   "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$"
+            + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?){2}\\d{3}$"
+            + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?)(\\d{2}[ ]?){2}\\d{2}$";
     public static final String LETTER_WITHOUT_NUMBER_REGEX = "^([A-Z]+[a-z]*[ ]?)+$";
     public static final String EMAIL_REGEX = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}$";
     public static final String DATE_REGEX = "[0-9]{4}-([0-9]|0[0-9]1[0-2])-([0-9]|[0-2][0-9]|3[0-1])$";
