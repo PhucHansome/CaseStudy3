@@ -3,19 +3,15 @@ package service;
 import model.User;
 import utils.MySQLConnUtils;
 
-import java.awt.*;
-import java.awt.image.RescaleOp;
-import java.net.CacheRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.PrimitiveIterator;
 
 public class UserService implements IUserService {
 
     private static String SELECT_ALL_USER = "" +
             "SELECT " +
+            "u.userId, " +
             "u.username, " +
             "u.fullName, " +
             "u.phone, " +
@@ -29,39 +25,46 @@ public class UserService implements IUserService {
     private static String SP_INSERT_USER = "{CALL `sp_insert_user`(?,?,?,?,?,?,?,now(),?,?,?)}";
 
     private static String INSERT_USER = "" +
-            "INSERT INTO `user`(`userName`,`password`,`fullname`,`phone`,`email`,`address`,`roles`,`createDate`,`img`)"+
-    " VALUES (?,?,?,?,?,?,?,now(),?);";
-//    IN `user_name` VARCHAR(255),
-//    IN `pass_word` VARCHAR(255),
-//    IN `full_Name` VARCHAR(255),
-//    IN `phones` BIGINT,
-//    IN `emails` VARCHAR(255),
-//    IN `addresss` VARCHAR(255),
-//    IN`roless` VARCHAR(255),
-//    IN `imgs` LONGTEXT,
-//    OUT message VARCHAR(255)
+            "INSERT INTO `user`(`userName`," +
+            "`password`," +
+            "`fullname`," +
+            "`phone`," +
+            "`email`," +
+            "`address`," +
+            "`roles`," +
+            "`createDate`," +
+            "`img`)" +
+            " VALUES (?,?,?,?,?,?,?,now(),?);";
+
+    private static String UPDATE_USER = "" +
+            "UPDATE casestudymodule3.`user` SET  `fullname`=? ,`phone`=? ,`email` = ?, `address`=?, `img`= ? ,updateDate = now() WHERE userId =?";
+
+    private static String USER_EXIST_BY_EMAIL = "" +
+            "SELECT COUNT(*) AS COUNT " +
+            "FROM user AS u " +
+            "WHERE u.email = ?;";
 
     @Override
     public boolean create(User user) {
-    boolean success = false;
+        boolean success = false;
 
         try {
             Connection connection = MySQLConnUtils.getConnection();
             CallableStatement statemen = connection.prepareCall(INSERT_USER);
-            statemen.setString(1,user.getUserName());
-            statemen.setString(2,user.getPassword());
-            statemen.setString(3,user.getFullName());
-            statemen.setLong(4,user.getPhone());
-            statemen.setString(5,user.getEmail());
-            statemen.setString(6,user.getAddress());
-            statemen.setString(7,user.getRole());
-            statemen.setString(8,user.getImg());
+            statemen.setString(1, user.getUserName());
+            statemen.setString(2, user.getPassword());
+            statemen.setString(3, user.getFullName());
+            statemen.setString(4, user.getPhone());
+            statemen.setString(5, user.getEmail());
+            statemen.setString(6, user.getAddress());
+            statemen.setString(7, user.getRole());
+            statemen.setString(8, user.getImg());
 
             statemen.execute();
 
             success = true;
-            String message =statemen.getString("message");
-        } catch (SQLException e){
+//            String message =statemen.getString("message");
+        } catch (SQLException e) {
             MySQLConnUtils.printSQLException(e);
         }
         return success;
@@ -69,7 +72,24 @@ public class UserService implements IUserService {
 
     @Override
     public boolean update(User user) {
-        return false;
+        boolean success = false;
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            CallableStatement statement = connection.prepareCall(UPDATE_USER);
+            statement.setString(1, user.getFullName());
+            statement.setString(2, user.getPhone());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getAddress());
+            statement.setString(5, user.getImg());
+            statement.setLong(6, user.getUserId());
+            System.out.println(statement);
+            statement.executeUpdate();
+            success = true;
+
+        } catch (SQLException e) {
+            MySQLConnUtils.printSQLException(e);
+        }
+        return success;
     }
 
     @Override
@@ -78,8 +98,26 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User findById(int userId) {
-        return null;
+    public User findById(long userId) {
+        User user = null;
+        String query = "{CALL get_user_by_id(?)}";
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            CallableStatement statement = connection.prepareCall(query);
+            statement.setLong(1, userId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String fullname = rs.getString("fullName");
+                String phone = rs.getString("phone");
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                String img = rs.getString("img");
+                user = new User(userId, fullname, phone, email, address, img);
+            }
+        } catch (SQLException e) {
+            MySQLConnUtils.printSQLException(e);
+        }
+        return user;
     }
 
     @Override
@@ -90,21 +128,40 @@ public class UserService implements IUserService {
             CallableStatement statement = connection.prepareCall(SELECT_ALL_USER);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
+                long userId = rs.getInt("userId");
                 String userName = rs.getString("userName");
                 String fullName = rs.getString("fullName");
-                long phone = rs.getLong("phone");
+                String phone = rs.getString("phone");
                 String email = rs.getString("email");
                 String address = rs.getString("address");
-                String roles = rs.getString("roles");
+                String role = rs.getString("roles");
                 String createDate = String.valueOf(rs.getDate("createDate"));
                 String updateDate = String.valueOf(rs.getDate("updateDate"));
-                String image = rs.getString("img");
+                String img = rs.getString("img");
 
-                userList.add(new User(userName,fullName,phone,email,address,roles,createDate,updateDate,image));
+                userList.add(new User(userId, userName, fullName, phone, email, address, role, createDate, updateDate, img));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return userList;
+    }
+    public boolean existsByEmail(String email){
+        boolean exist = false;
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            PreparedStatement statement = connection.prepareCall(USER_EXIST_BY_EMAIL);
+            statement.setString(1, email);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                int count  = rs.getInt("count");
+                if (count > 0){
+                    exist = true;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return exist;
     }
 }

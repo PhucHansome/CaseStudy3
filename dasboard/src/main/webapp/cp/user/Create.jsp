@@ -289,7 +289,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Uplon</a></li>
-                                    <li class="breadcrumb-item active">User</li>
+                                    <li class="breadcrumb-item active">Create User</li>
                                 </ol>
                             </div>
                             <h4 class="page-title">Create User</h4>
@@ -298,71 +298,93 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="" method="post">
+                        <form action="" method="post" class="parsley-examples"  enctype="multipart/form-data" data-parsley-validate="" novalidate="">
                             <div class="row">
+
                                 <div class="mb-3 col-6">
-                                    <label for="userName" class="form-label">User Name</label>
-                                    <input type="text" class="form-control" id="userName" name="userName">
+                                    <label for="userName" class="form-label">User Name<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="userName" name="userName"value="${userCreate.userName}">
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="password" name="password">
+                                    <label for="password" class="form-label">Password<span
+                                            class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" id="password" name="password" value="${userCreate.password}">
                                 </div>
                             </div>
                             <div class="row">
+
                                 <div class="mb-3 col-6">
-                                    <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" name="fullName">
+                                    <label for="fullName" class="form-label">Full Name<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullName" name="fullName" value="${userCreate.fullName}">
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <label for="phone" class="form-label">Phone</label>
-                                    <input type="number" class="form-control" id="phone" name="phone">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-3 col-6">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address">
+                                    <label for="phone" class="form-label">Phone<span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="phone" name="phone" value="${userCreate.phone}">
+
                                 </div>
                             </div>
                             <div class="row">
+
                                 <div class="mb-3 col-6">
-                                    <label for="img" class="form-label">Images</label>
-                                    <input type="text" class="form-control" id="img" name="img">
+                                    <label for="email" class="form-label">Email<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="email" name="email" value="${userCreate.email}">
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <label for="role" class="form-label">Role</label>
-                                    <input type="text" class="form-control" id="role" name="role">
+                                    <label for="address" class="form-label">Address<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="address" name="address" value="${userCreate.address}">
                                 </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-12">
-                                <button type="submit" class=" btn btn-outline-secondary">
-                                    Create
-                                </button>
+                                <div class="mb-3 col-6">
+                                    <label for="file" class="form-label">Images<span
+                                            class="text-danger">*</span></label>
+                                    <input type="file" class="form-control" id="file" name="file" value="${userCreate.img}">
+                                    <%--                                    <input type="text" readonly value="img">--%>
+
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="role" class="form-label">Role<span
+                                            class="text-danger">*</span></label>
+                                    <select name="role" id="role" class="form-control" value="${userCreate.role}">
+                                        <option value="ADMIN">ADMIN</option>
+                                        <option value="USER">USER</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group text-right mb-0">
+                                    <button class="btn btn-primary waves-effect waves-light mr-1" style="margin-bottom: 10px" type="submit">
+                                        Submit
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary waves-effect" style="margin-bottom: 10px">
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </form>
-                            <div class="footer">
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-12">
                                 <c:if test="${requestScope['success'] == true}">
-                                    <ul>
-                                        <li>Thêm mới thành công</li>
-                                    </ul>
+                                        <span class="alert alert-success col-3" style="font-size: 15px">Thêm mới thành công</span>
                                 </c:if>
                                 <c:if test="${!requestScope['errors'].isEmpty()}">
-                                    <ul>
-                                        <c:forEach items="${requestScope['errors']}" var="item">
-                                            <li>
-                                                ${item}
-                                            </li>
-                                        </c:forEach>
-                                    </ul>
+                                    <c:forEach items="${requestScope['errors']}" var="item">
+                                            <div class="alert alert-danger col-3" style="margin-top: -20px;">
+                                            <span style="font-size: 15px;" >
+                                                    ${item}
+                                            </span>
+                                            </div>
+                                    </c:forEach>
                                 </c:if>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

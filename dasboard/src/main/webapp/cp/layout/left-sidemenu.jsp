@@ -5,7 +5,7 @@
         <!--- Sidemenu -->
         <div id="sidebar-menu">
 
-            <ul class="metismenu" id="side-menu">
+            <ul class="metismenu mm-show" id="side-menu">
 
                 <li class="menu-title">Navigation</li>
 
@@ -17,10 +17,20 @@
                 </li>
 
                 <li>
-                    <a href="/cp/user">
+                    <a href="javascript: void(0);" aria-expanded="true">
                         <i class="fa-solid fa-users"></i>
                         <span> User </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="nav-second-level mm-collapse" aria-expanded="false">
+                        <li>
+                            <a href="/cp/user">List User</a>
+                        </li>
+                        <li>
+                            <a href="/cp/user?action=create">Add User</a>
+                        </li>
+                    </ul>
+
                 </li>
                 <li>
                     <a href="/cp/listproduct">

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
-    <%@include file="/cp/layout/header.jsp"%>
+    <%@include file="/cp/layout/header.jsp" %>
 </head>
 <style>
     .navbar-custom {
@@ -28,35 +28,41 @@
         <ul class="list-unstyled topnav-menu float-right mb-0">
 
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
-                <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
                     <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/germany.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">German</span>
+                        <img src="/assets/images/flags/germany.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/italy.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
+                        <img src="/assets/images/flags/italy.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/spain.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
+                        <img src="/assets/images/flags/spain.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/russia.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
+                        <img src="/assets/images/flags/russia.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Russian</span>
                     </a>
 
                 </div>
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="mdi mdi-bell-outline noti-icon"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -137,7 +143,8 @@
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="mdi mdi-email-outline noti-icon"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -159,35 +166,40 @@
                         <div class="inbox-widget">
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-1.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Chadengle</p>
                                     <p class="inbox-item-text text-truncate">Hey! there I'm available...</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-2.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-2.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Tomaslau</p>
                                     <p class="inbox-item-text text-truncate">I've finished it! See you so...</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-3.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-3.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Stillnotdavid</p>
                                     <p class="inbox-item-text text-truncate">This theme is awesome!</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-4.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-4.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Kurafire</p>
                                     <p class="inbox-item-text text-truncate">Nice to meet you</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-5.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-5.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Shahedk</p>
                                     <p class="inbox-item-text text-truncate">Hey! there I'm available...</p>
 
@@ -206,8 +218,10 @@
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6" alt="user-image" class="rounded-circle">
+                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                   href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6"
+                         alt="user-image" class="rounded-circle">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -248,14 +262,14 @@
         </ul>
 
         <!-- LOGO -->
-        <%@include file="/cp/layout/navbar/logo-box.jsp"%>
-        <%@include file="/cp/layout/navbar/topnav-menu-left.jsp"%>
+        <%@include file="/cp/layout/navbar/logo-box.jsp" %>
+        <%@include file="/cp/layout/navbar/topnav-menu-left.jsp" %>
     </div>
     <!-- end Topbar -->
 
 
     <!-- ========== Left Sidebar Start ========== -->
-    <%@include file="/cp/layout/left-sidemenu.jsp"%>
+    <%@include file="/cp/layout/left-sidemenu.jsp" %>
     <!-- Left Sidebar End -->
 
     <!-- ============================================================== -->
@@ -285,7 +299,8 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="input-group">
-                            <input type="search" class="form-control" placeholder="Search..." style="border-radius: 20px;margin-top: -22px; margin-bottom: 10px;">
+                            <input type="search" class="form-control" placeholder="Search..."
+                                   style="border-radius: 20px;margin-top: -22px; margin-bottom: 10px;">
                             <div class="input-group-append">
                                 <button class="btn" type="submit" style=" left: -40px;top: -21px;">
                                     <i class="fas fa-search" style="left: 8px;color: #0000004a;"> </i>
@@ -295,8 +310,10 @@
                     </div>
                     <div class="col-lg-8">
                         <a href="/cp/user?action=create">
-                            <button type="button"class="btn btn-outline-secondary float-right" style="margin-top: -22px; margin-bottom: 10px;">
-                                Create User
+                            <button type="button" class="btn btn-outline-secondary float-right"
+                                    style="margin-top: -22px; margin-bottom: 10px;">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <b>Create User</b>
                             </button>
                         </a>
                     </div>
@@ -306,7 +323,6 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-<%--                                <th>#</th>--%>
                                 <th>Avatar</th>
                                 <th>User Name</th>
                                 <th>Full Name</th>
@@ -316,31 +332,67 @@
                                 <th>Role</th>
                                 <th>Create Date</th>
                                 <th>Update Date</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${requestScope['userList']}" var="item">
-                                    <tr>
-<%--                                        <th>${item.getUserId()}</th>--%>
-                                        <td><img src="${item.getImg()}" width="50px" height="50px" style="border-radius:5px " alt=""></td>
-                                        <td>${item.getUserName()}</td>
-                                        <td>${item.getFullName()}</td>
-                                        <td>${item.getPhone()}</td>
-                                        <td>${item.getEmail()}</td>
-                                        <td>${item.getAddress()}</td>
-                                        <td>${item.getRole()}</td>
-                                        <td>${item.getCreateDate()}</td>
-                                        <td>${item.getUpdateDate()}</td>
-                                    </tr>
-                                </c:forEach>
+                            <c:forEach items="${requestScope['userList']}" var="item">
+                                <tr>
+                                    <td><img src="/assets/images/users/${item.getImg()}" width="30px" height="30px"
+                                             style="border-radius:50% " alt=""></td>
+                                    <td>${item.getUserName()}</td>
+                                    <td>${item.getFullName()}</td>
+                                    <td>${item.getPhone()}</td>
+                                    <td>${item.getEmail()}</td>
+                                    <td>${item.getAddress()}</td>
+                                    <td>${item.getRole()}</td>
+                                    <td>${item.getCreateDate()}</td>
+                                    <td>${item.getUpdateDate()}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-outline-secondary waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="mdi mdi-chevron-down"></i>
+                                            </button>
+                                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 15px, 0px);">
+                                                <a class="dropdown-item"  href="/cp/user?action=edit&id=${item.getUserId()}"><i class="fa-solid fa-user-pen"></i>  <b>Edit</b></a>
+
+                                            </div>
+                                        </div>
+<%--                                        <a href="/cp/user?action=edit&id=${item.getUserId()}">Edit</a>--%>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
+
                         </table>
+                        <div class="row float-right">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">»</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
                     </div>
                 </div>
                 <!-- end page title -->
 
                 <!-- Footer Start -->
-                <%@include file="/cp/layout/footer.jsp"%>
+                <%@include file="/cp/layout/footer.jsp" %>
                 <!-- end Footer -->
 
             </div>
@@ -353,9 +405,9 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <%@include file="/cp/layout/rightBar.jsp"%>
+        <%@include file="/cp/layout/rightBar.jsp" %>
 
-        <%@include file="/cp/layout/script/script.jsp"%>
+        <%@include file="/cp/layout/script/script.jsp" %>
 
 </body>
 </html>

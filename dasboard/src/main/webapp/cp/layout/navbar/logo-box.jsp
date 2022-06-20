@@ -1,5 +1,5 @@
 <div class="logo-box">
-    <a href="index.html" class="logo text-center logo-dark">
+    <a href="/cp" class="logo text-center logo-dark">
                         <span class="logo-lg" style="background-color:white;">
                             <img src="/assets/images/logo.png" alt="" height="22">
                             <!-- <span class="logo-lg-text-dark">Uplon</span> -->

@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <script>
+    location.href = "/cp/user";
+  </script>
   </body>
 </html>

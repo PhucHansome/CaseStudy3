@@ -1,11 +1,13 @@
 package model;
 
+import javax.validation.constraints.*;
+
 public class User {
     private long userId;
     private String userName;
     private String password;
     private String fullName;
-    private long phone;
+    private String phone;
     private String email;
     private String address;
     private String Role;
@@ -13,9 +15,9 @@ public class User {
     private String createDate;
     private String img;
 
-    public User(String userName, String password, String fullName, long phone, String email, String address, String role, String img) {
-        this.userName =userName;
-        this.password=password;
+    public User(String userName, String password, String fullName, String phone, String email, String address, String role, String img) {
+        this.userName = userName;
+        this.password = password;
         this.fullName = fullName;
         this.phone = phone;
         this.email = email;
@@ -26,7 +28,33 @@ public class User {
 
     ;
 
-    public User(long userId, String userName, String password, String fullName, long phone, String email, String address, String role, String updateDate, String createDate) {
+//    public User(long userId, String userName, String password, String fullName, String phone, String email, String address, String role, String updateDate, String createDate) {
+//        this.userId = userId;
+//        this.userName = userName;
+//        this.password = password;
+//        this.fullName = fullName;
+//        this.phone = phone;
+//        this.email = email;
+//        this.address = address;
+//        Role = role;
+//        this.updateDate = updateDate;
+//        this.createDate = createDate;
+//    }
+
+//    public User(long userId, String userName, String fullName, String phone, String email, String address, String role, String updateDate, String createDate, String img) {
+//        this.userId = userId;
+//        this.userName = userName;
+//        this.fullName = fullName;
+//        this.phone = phone;
+//        this.email = email;
+//        this.address = address;
+//        Role = role;
+//        this.createDate = createDate;
+//        this.updateDate = updateDate;
+//        this.img = img;
+//    }
+
+    public User(long userId, String userName, String password, String fullName, String phone, String email, String address, String role) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
@@ -35,22 +63,9 @@ public class User {
         this.email = email;
         this.address = address;
         Role = role;
-        this.updateDate = updateDate;
-        this.createDate = createDate;
     }
 
-    public User(long userId, String userName, String password, String fullName, long phone, String email, String address, String role) {
-        this.userId = userId;
-        this.userName = userName;
-        this.password = password;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        Role = role;
-    }
-
-    public User(String userName ,String fullName, long phone, String email, String address, String roles, String createDate, String updateDate, String img) {
+    public User(String userName, String fullName, String phone, String email, String address, String roles, String createDate, String updateDate, String img) {
 //        this.userId = userId;
         this.userName = userName;
         this.fullName = fullName;
@@ -60,6 +75,56 @@ public class User {
         this.Role = roles;
         this.updateDate = updateDate;
         this.createDate = createDate;
+        this.img = img;
+    }
+
+    public User(long userId, String fullName, String phone, String email, String address, String img) {
+        this.userId = userId;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.img = img;
+    }
+
+//    public User(long userId, String userName, String fullName, String phone, String email, String address, String role, String createDate, String updateDate, String img) {
+//        this.userId = userId;
+//        this.userName = userName;
+//        this.fullName = fullName;
+//        this.phone = phone;
+//        this.email = email;
+//        this.address = address;
+//        Role = role;
+//        this.createDate = createDate;
+//        this.updateDate = updateDate;
+//        this.img = img;
+//
+//    }
+
+
+//    public User(long userId, String userName, String fullName, String phone, String email, String address, String role, String createDate, String updateDate, String img) {
+//        this.userId = userId;
+//        this.userName = userName;
+//        this.fullName = fullName;
+//        this.phone = phone;
+//        this.email = email;
+//        this.address = address;
+//        this.Role = role;
+//        this.createDate = createDate;
+//        this.updateDate = updateDate;
+//        this.img = img;
+//    }
+
+    public User(long userId,String userName,String fullName,String phone,String email,String address,String role,String createDate,String updateDate,String img) {
+        this.userId = userId;
+        this.userName = userName;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.Role = role;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
         this.img = img;
     }
 
@@ -95,6 +160,7 @@ public class User {
         this.userId = userId;
     }
 
+
     public String getUserName() {
         return userName;
     }
@@ -111,6 +177,7 @@ public class User {
         this.password = password;
     }
 
+
     public String getFullName() {
         return fullName;
     }
@@ -119,11 +186,11 @@ public class User {
         this.fullName = fullName;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
