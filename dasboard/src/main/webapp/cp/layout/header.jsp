@@ -5,7 +5,7 @@
 <meta content="Coderthemes" name="author">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- App favicon -->
-<link rel="shortcut icon" href="/assets/images/logo-sm-light.png">
+<link rel="shortcut icon" href="/assets/images/logo-sm.png.png">
 
 <!-- App css -->
 <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">

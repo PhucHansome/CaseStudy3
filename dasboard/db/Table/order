@@ -1,0 +1,20 @@
+create table `order`
+(
+    orderId         bigint auto_increment
+        primary key,
+    fullName        varchar(255) null,
+    email           varchar(255) null,
+    phone           bigint       null,
+    orderDate       datetime     null,
+    deliveryAddress varchar(255) null,
+    grandTotal      decimal(12)  null,
+    createDate      datetime     null,
+    updateDate      datetime     null,
+    userId          bigint       null,
+    constraint order_ibfk_1
+        foreign key (userId) references user (userId)
+);
+
+create index userId
+    on `order` (userId);
+

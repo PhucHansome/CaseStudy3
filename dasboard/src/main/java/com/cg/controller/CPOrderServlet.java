@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CPCateloryServlet",urlPatterns = "/cp/category")
-public class CPCateloryServlet extends HttpServlet {
+@WebServlet(name = "CPOrderServlet",urlPatterns = "/cp/order")
+public class CPOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/category/Create.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/order/Order.jsp");
         dispatcher.forward(req,resp);
     }
 }

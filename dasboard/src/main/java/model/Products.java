@@ -8,6 +8,34 @@ public class Products {
     private String typeProduct;
     private String description;
     private String image;
+    private String createDate;
+    private String updateDate;
+    private String status;
+
+    public Products(long productId, String nameProduct, String priceProduct, String quantityProduct, String typeProduct, String description, String image, String createDate, String updateDate, String status) {
+        this.productId = productId;
+        this.nameProduct = nameProduct;
+        this.priceProduct = priceProduct;
+        this.quantityProduct = quantityProduct;
+        this.typeProduct = typeProduct;
+        this.description = description;
+        this.image = image;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.status = status;
+    }
+
+    public Products(long productId, String nameProduct, String priceProduct, String quantityProduct, String typeProduct, String description, String image, String createDate, String updateDate) {
+        this.productId = productId;
+        this.nameProduct = nameProduct;
+        this.priceProduct = priceProduct;
+        this.quantityProduct = quantityProduct;
+        this.typeProduct = typeProduct;
+        this.description = description;
+        this.image = image;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+    }
 
     public Products(long productId, String nameProduct, String priceProduct, String quantityProduct, String typeProduct, String description, String image) {
         this.productId = productId;
@@ -17,6 +45,27 @@ public class Products {
         this.typeProduct = typeProduct;
         this.description = description;
         this.image = image;
+    }
+
+    public Products(String nameProduct, String priceProduct, String quantityProduct, String typeProduct, String description, String image) {
+        this.nameProduct = nameProduct;
+        this.priceProduct = priceProduct;
+        this.quantityProduct = quantityProduct;
+        this.typeProduct = typeProduct;
+        this.description = description;
+        this.image = image;
+    }
+
+    public Products(long productId, String nameProduct, String princeProduct, String quantityProduct, String typeProduct, String description, String image, String status) {
+    }
+//    productId, nameProduct, princeProduct, quantityProduct, typeProduct, description, image,status
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public long getProductId() {
@@ -37,6 +86,22 @@ public class Products {
 
     public String getPriceProduct() {
         return priceProduct;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
 
     public void setPriceProduct(String priceProduct) {

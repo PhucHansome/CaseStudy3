@@ -6,17 +6,7 @@
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
     <%@include file="layout/header.jsp"%>
 </head>
-<style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
-</style>
+
 <body>
 
 <!-- Begin page -->
@@ -29,7 +19,7 @@
 
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="./assets/images/flags/us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image" height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -207,7 +197,8 @@
 
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6" alt="user-image" class="rounded-circle">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>

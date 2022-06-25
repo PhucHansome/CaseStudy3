@@ -128,6 +128,34 @@ public class User {
         this.img = img;
     }
 
+    public User(long userId, String fullName, String phone, String address, String img) {
+        this.userId = userId;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.address = address;
+        this.img = img;
+    }
+
+    public User() {
+
+    }
+
+    public User(long userId, String userName, String password, String fullName, String phone, String email, String address, String role, String updateDate, String createDate, String img) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        Role = role;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.img = img;
+    }
+//    userId, fullName, phone, email, address, img,username,password,Role,createDate,updateDate
+
+    //    userId, fullName, phone, address, img
     public String getImg() {
         return img;
     }
@@ -217,4 +245,5 @@ public class User {
     public void setRole(String role) {
         Role = role;
     }
+
 }

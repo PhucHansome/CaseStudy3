@@ -10,5 +10,5 @@ public interface IGeneralService<T> {
 
     boolean update(T t);
 
-    boolean remove(int id);
+    boolean remove(long id);
 }

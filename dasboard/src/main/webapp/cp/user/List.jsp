@@ -7,14 +7,14 @@
     <%@include file="/cp/layout/header.jsp" %>
 </head>
 <style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
+    th {
+        background-color: #2b3d51;
+        color: #d9e4ef;
+    }
+
+    th, td {
+        text-align: center;
+
     }
 </style>
 <body>
@@ -30,7 +30,8 @@
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image"
+                         height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -220,8 +221,8 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6"
-                         alt="user-image" class="rounded-circle">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -252,7 +253,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="/cp/login" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
                         <span>Logout</span>
                     </a>
@@ -292,20 +293,20 @@
                                     <li class="breadcrumb-item active">User</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">List User</h4>
+                            <h2 class="page-title">List User</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="input-group">
-                            <input type="search" class="form-control" placeholder="Search..."
-                                   style="border-radius: 20px;margin-top: -22px; margin-bottom: 10px;">
-                            <div class="input-group-append">
-                                <button class="btn" type="submit" style=" left: -40px;top: -21px;">
+                            <form method="get">
+                                <input type="search" name="search" class="form-control" placeholder="Search..."
+                                       style="border-radius: 20px;margin-top: -22px; margin-bottom: 10px;">
+                                <button class="btn" type="submit" style="margin-top: -82px;margin-left: 149px;}">
                                     <i class="fas fa-search" style="left: 8px;color: #0000004a;"> </i>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="col-lg-8">
@@ -320,80 +321,71 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table table-hover">
+                        <table class="table table-hover table table-hover">
                             <thead>
                             <tr>
-                                <th>Avatar</th>
-                                <th>User Name</th>
-                                <th>Full Name</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Addres</th>
-                                <th>Role</th>
-                                <th>Create Date</th>
-                                <th>Update Date</th>
-                                <th>Action</th>
+                                <th>AVATAR</th>
+                                <th>USERNAME</th>
+                                <th>FULLNAME</th>
+                                <th>PHONE</th>
+                                <th>EMAIL</th>
+                                <th>ADDRESS</th>
+                                <th>ROLE</th>
+                                <th>CREATE DATE</th>
+                                <th>UPDATE DATE</th>
+                                <th>ACTION</th>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach items="${requestScope['userList']}" var="item">
                                 <tr>
-                                    <td><img src="/assets/images/users/${item.getImg()}" width="30px" height="30px"
-                                             style="border-radius:50% " alt=""></td>
-                                    <td>${item.getUserName()}</td>
-                                    <td>${item.getFullName()}</td>
-                                    <td>${item.getPhone()}</td>
-                                    <td>${item.getEmail()}</td>
-                                    <td>${item.getAddress()}</td>
-                                    <td>${item.getRole()}</td>
-                                    <td>${item.getCreateDate()}</td>
-                                    <td>
-                                            <c:if test="${item.getUpdateDate() == 'null'}">
-                                         <p></p>
-                                            </c:if>
+                                    <td class="align-middle"><img src="/assets/images/users/${item.getImg()}"
+                                                                  width="50px" height="50px"
+                                                                  style="border-radius:50% " alt=""></td>
+                                    <td class="align-middle" style=" text-decoration: underline;">
+                                        <b>${item.getUserName()}</b></td>
+                                    <td class="align-middle" style=" text-decoration: underline;">
+                                        <b>${item.getFullName()}</b></td>
+                                    <td class="align-middle" style=" text-decoration: underline;">
+                                        <b>${item.getPhone()}</b></td>
+                                    <td class="align-middle" style=" text-decoration: underline;">
+                                        <b>${item.getEmail()}</b></td>
+                                    <td class="align-middle">${item.getAddress()}</td>
+                                        <%--                                    <td class="align-middle">${item.getRole()}</td>--%>
+                                    <td class="align-middle"><c:if test='${item.getRole().equals("USER")}'>
+                                        <span style="color: #dc3545; font-size: 15px;"><b>${item.getRole()}</b></span>
+                                    </c:if>
+                                        <c:if test='${item.getRole().equals("ADMIN")}'>
+                                            <span style="color: #00e372;font-size: 15px;"><b>${item.getRole()}</b></span>
+                                        </c:if></td>
+                                    <td class="align-middle">${item.getCreateDate()}</td>
+                                    <td class="align-middle">
+                                        <c:if test="${item.getUpdateDate() == 'null'}">
+                                            <p></p>
+                                        </c:if>
                                         <c:if test="${item.getUpdateDate() != 'null'}">
                                             ${item.getUpdateDate()}
                                         </c:if>
                                     </td>
-                                    <td>
+                                    <td class="align-middle">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-outline-secondary waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-chevron-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 15px, 0px);">
-                                                <a class="dropdown-item"  href="/cp/user?action=edit&id=${item.getUserId()}"><i class="fa-solid fa-user-pen"></i>  <b>Edit</b></a>
+                                            <a class=" btn btn-outline-success"
+                                               href="/cp/user?action=edit&id=${item.getUserId()}"><i
+                                                    class="fa-solid fa-user-pen"></i></a>
 
-                                            </div>
                                         </div>
-<%--                                        <a href="/cp/user?action=edit&id=${item.getUserId()}">Edit</a>--%>
+                                        <div class="btn-group">
+                                            <a class=" btn btn-outline-warning"
+                                               href="/cp/user?action=viewdetail&id=${item.getUserId()}"><i
+                                                    class="fa-solid fa-eye"></i></a>
+
+                                        </div>
+                                            <%--                                        <a href="/cp/user?action=edit&id=${item.getUserId()}">Edit</a>--%>
                                     </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
-
                         </table>
-                        <div class="row float-right">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">«</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">»</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
                     </div>
                 </div>
                 <!-- end page title -->

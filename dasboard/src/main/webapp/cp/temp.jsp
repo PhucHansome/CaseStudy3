@@ -5,17 +5,7 @@
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
     <%@include file="layout/header.jsp"%>
 </head>
-<style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
-</style>
+
 <body>
 
 <!-- Begin page -->
@@ -28,7 +18,7 @@
 
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src=".\assets\images\flags\us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image" height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->

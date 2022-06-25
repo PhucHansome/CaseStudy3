@@ -18,14 +18,13 @@ public class UploadImage {
             if (fn.equals("file")) {
                 fileName = extractFileName(part);
                 fileName = new File(fileName).getName();
-                if (!fileName.isEmpty()) {
+//                if (fileName.contains(".jpg") || fileName.contains(".png")) {
                     part.write(getFolderUploadServer(req).getAbsolutePath() + File.separator + fileName);
                     part.write(getFolderUploadLocal().getAbsolutePath() + File.separator + fileName);
-                } else
-                    fileName = "avatar-1.jpg";
-                fileName = new File(fileName).getName();
-                part.write(getFolderUploadServer(req).getAbsolutePath() + File.separator + fileName);
-                part.write(getFolderUploadLocal().getAbsolutePath() + File.separator + fileName);
+//                } else
+//                fileName = "hoicham.png";
+//                part.write(getFolderUploadServer(req).getAbsolutePath() + File.separator + fileName);
+//                part.write(getFolderUploadLocal().getAbsolutePath() + File.separator + fileName);
             }
         }
 

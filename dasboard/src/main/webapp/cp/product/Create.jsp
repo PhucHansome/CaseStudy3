@@ -1,20 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
-    <%@include file="/cp/layout/header.jsp"%>
+    <%@ include file="/cp/layout/header.jsp" %>
 </head>
 <style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
+
 </style>
 <body>
 
@@ -28,7 +21,7 @@
 
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image" height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -206,7 +199,8 @@
 
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6" alt="user-image" class="rounded-circle">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -237,7 +231,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="/cp/login" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
                         <span>Logout</span>
                     </a>
@@ -274,13 +268,86 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Uplon</a></li>
-                                    <li class="breadcrumb-item active">List Product</li>
+                                    <li class="breadcrumb-item active">Create Product</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">List Product</h4>
+                            <h4 class="page-title">Create Product</h4>
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <form action="" method="post" class="parsley-examples" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label for="nameProduct" class="form-label">Name Product</label>
+                                    <input type="text" class="form-control" id="nameProduct" name="nameProduct"
+                                    value="${productCreate.nameProduct}" required=""autofocus>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="priceProduct" class="form-label">Price Product</label>
+                                    <input type="number" class="form-control" id="priceProduct" name="priceProduct"
+                                           value="${productCreate.priceProduct}" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label for="quantityProduct" class="form-label">Quantity Product</label>
+                                    <input type="number" class="form-control" id="quantityProduct" name="quantityProduct"
+                                           value="${productCreate.quantityProduct}" required="">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="typeProduct" class="form-label">Type Product</label>
+                                    <Select name="typeProduct" id="typeProduct" class="form-control" value="${productCreate.typeProduct}" required="">
+                                        <option value="SmartPhone" >SmartPhone</option>
+                                        <option value="LapTop">LapTop</option>
+                                        <option value="Accessory">Accessory</option>
+                                    </Select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="description" name="description"
+                                           value="${productCreate.description}" required="">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="file" class="form-label">Images<span class="text-danger" >*</span></label>
+                                    <input type="file" class="form-control-file" id="file" name="file" required="" accept="image/jpeg, image/png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group text-right mb-0">
+                                    <button class="btn btn-primary waves-effect waves-light "
+                                            style="margin-bottom: 10px;margin-left: 11px;" type="submit">
+                                        <i class="bi bi-bag-plus"></i>  Create
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-12">
+                                <c:if test="${requestScope['success'] == true}">
+                                    <span class="alert alert-success col-3"
+                                          style="font-size: 15px">Thêm mới thành công</span>
+                                </c:if>
+                                <c:if test="${!requestScope['errors'].isEmpty()}">
+                                    <c:forEach items="${requestScope['errors']}" var="item">
+                                        <div class="alert alert-danger col-3" style="margin-top: -20px;">
+                                            <span style="font-size: 15px;">
+                                                    ${item}
+                                            </span>
+                                        </div>
+                                    </c:forEach>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
                 <!-- end page title -->
 
                 <!-- Footer Start -->

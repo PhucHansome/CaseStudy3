@@ -1,21 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
-    <%@include file="/cp/layout/header.jsp"%>
+    <%@include file="/cp/layout/header.jsp" %>
 </head>
-<style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
-</style>
+
 <body>
 
 <!-- Begin page -->
@@ -27,35 +18,42 @@
         <ul class="list-unstyled topnav-menu float-right mb-0">
 
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
-                <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
+                <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image"
+                         height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/germany.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">German</span>
+                        <img src="/assets/images/flags/germany.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/italy.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
+                        <img src="/assets/images/flags/italy.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/spain.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
+                        <img src="/assets/images/flags/spain.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="/assets/images/flags/russia.jpg" alt="lang-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
+                        <img src="/assets/images/flags/russia.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                            class="align-middle">Russian</span>
                     </a>
 
                 </div>
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="mdi mdi-bell-outline noti-icon"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -136,7 +134,8 @@
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#"
+                   role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="mdi mdi-email-outline noti-icon"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -158,35 +157,40 @@
                         <div class="inbox-widget">
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-1.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Chadengle</p>
                                     <p class="inbox-item-text text-truncate">Hey! there I'm available...</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-2.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-2.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Tomaslau</p>
                                     <p class="inbox-item-text text-truncate">I've finished it! See you so...</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-3.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-3.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Stillnotdavid</p>
                                     <p class="inbox-item-text text-truncate">This theme is awesome!</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-4.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-4.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Kurafire</p>
                                     <p class="inbox-item-text text-truncate">Nice to meet you</p>
                                 </div>
                             </a>
                             <a href="#">
                                 <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-5.jpg" class="rounded-circle" alt=""></div>
+                                    <div class="inbox-item-img"><img src="/assets/images/users/avatar-5.jpg"
+                                                                     class="rounded-circle" alt=""></div>
                                     <p class="inbox-item-author">Shahedk</p>
                                     <p class="inbox-item-text text-truncate">Hey! there I'm available...</p>
 
@@ -205,8 +209,10 @@
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6" alt="user-image" class="rounded-circle">
+                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                   href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -247,14 +253,14 @@
         </ul>
 
         <!-- LOGO -->
-        <%@include file="/cp/layout/navbar/logo-box.jsp"%>
-        <%@include file="/cp/layout/navbar/topnav-menu-left.jsp"%>
+        <%@include file="/cp/layout/navbar/logo-box.jsp" %>
+        <%@include file="/cp/layout/navbar/topnav-menu-left.jsp" %>
     </div>
     <!-- end Topbar -->
 
 
     <!-- ========== Left Sidebar Start ========== -->
-    <%@include file="/cp/layout/left-sidemenu.jsp"%>
+    <%@include file="/cp/layout/left-sidemenu.jsp" %>
     <!-- Left Sidebar End -->
 
     <!-- ============================================================== -->
@@ -274,32 +280,73 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Uplon</a></li>
-                                    <li class="breadcrumb-item active">List Product</li>
+                                    <li class="breadcrumb-item active">View Detail</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">List Product</h4>
+                            <h4 class="page-title">View Detail</h4>
                         </div>
                     </div>
                 </div>
-                <!-- end page title -->
-
-                <!-- Footer Start -->
-                <%@include file="/cp/layout/footer.jsp"%>
-                <!-- end Footer -->
-
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="mb-2 col-4">
+                                <hr>
+                                <img src="/assets/images/users/${user.getImg()}" width="320px" height="320px" style="border-radius: 10%">
+                            </div>
+                            <div class="mb-4 col-3 " style="margin-left: -45px;">
+                                <hr>
+                                <span><b>Username: ${user.getUserName()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Password: ${user.getPassword()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Full Name: ${user.getFullName()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Phone: ${user.getPhone()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Email: ${user.getEmail()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Address: ${user.getAddress()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>Role: ${user.getRole()}</b></span>
+                                <br>
+                                <hr>
+                                <span><b>CreateDate:${user.getUpdateDate()} </b></span>
+                                <br>
+                                <hr>
+                                <span><b>UpdateDate: ${user.getCreateDate()}</b></span>
+                                <br>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- end page title -->
 
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
+            <!-- Footer Start -->
+            <%@include file="/cp/layout/footer.jsp" %>
+            <!-- end Footer -->
 
         </div>
-        <!-- END wrapper -->
 
-        <!-- Right Sidebar -->
-        <%@include file="/cp/layout/rightBar.jsp"%>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
 
-        <%@include file="/cp/layout/script/script.jsp"%>
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <%@include file="/cp/layout/rightBar.jsp" %>
+
+    <%@include file="/cp/layout/script/script.jsp" %>
 
 </body>
 </html>

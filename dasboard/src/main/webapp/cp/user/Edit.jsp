@@ -6,17 +6,7 @@
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
     <%@include file="/cp/layout/header.jsp" %>
 </head>
-<style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
-</style>
+
 <body>
 
 <!-- Begin page -->
@@ -30,7 +20,8 @@
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image"
+                         height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -220,8 +211,8 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6"
-                         alt="user-image" class="rounded-circle">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -252,7 +243,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="/cp/login" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
                         <span>Logout</span>
                     </a>
@@ -298,34 +289,31 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="" method="post" class="parsley-examples"  enctype="multipart/form-data"  data-parsley-validate="" novalidate="">
+                        <form action="" method="post" class="parsley-examples" enctype="multipart/form-data">
                             <div class="mb-3 col-6">
                                 <span>Full Name</span>
-                                <input class="form-control" type="text" name="fullName" value="${user.fullName}">
+                                <input class="form-control" type="text" name="fullName" value="${user.fullName}"
+                                       required=""autofocus>
                             </div>
                             <div class="mb-3 col-6">
                                 <span>Phone</span>
-                                <input class="form-control"  type="text" name="phone" value="${user.phone}">
-                            </div>
-                            <div class="mb-3 col-6">
-                                <span>Email</span>
-                                <input class="form-control"  type="text" name="email" value="${user.email}">
+                                <input class="form-control" type="text" name="phone" value="${user.phone}" required="">
                             </div>
                             <div class="mb-3 col-6">
                                 <span>Address</span>
-                                <input class="form-control"   type="text" name="address" value="${user.address}">
+                                <input class="form-control" type="text" name="address" value="${user.address}"
+                                       required="">
                             </div>
                             <div class="mb-3 col-6">
                                 <span>File Image</span>
-                                <input class="form-control-file"   type="file" name="file" value="${user.img}">
+                                <input class="form-control-file" type="file" name="file" value="${user.img}" required=""
+                                       accept="image/jpeg, image/png">
                             </div>
                             <div class="row">
                                 <div class="form-group text-right mb-0">
-                                    <button href="/cp/user?action=edit&id=${user.userId}" class="btn btn-primary waves-effect waves-light mr-1" type="submit">
-                                        Submit
-                                    </button>
-                                    <button type="reset" class="btn btn-secondary waves-effect">
-                                        Cancel
+                                    <button href="/cp/user?action=edit&id=${user.userId}"
+                                            class="btn btn-primary waves-effect waves-light mr-1" type="submit" >
+                                        Save
                                     </button>
                                 </div>
                             </div>
@@ -337,9 +325,9 @@
                                 </ul>
                             </c:if>
                             <c:if test="${!requestScope['errors'].isEmpty()}">
-                                <ul >
+                                <ul>
                                     <c:forEach items="${requestScope['errors']}" var="item">
-                                        <li  class="alert alert-danger col-3" style="font-size: 15px">
+                                        <li class="alert alert-danger col-3" style="font-size: 15px">
                                                 ${item}
                                         </li>
                                     </c:forEach>

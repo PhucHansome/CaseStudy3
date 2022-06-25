@@ -6,17 +6,7 @@
     <title>Dashboard | Uplon - Responsive Bootstrap 4 Admin Dashboard</title>
     <%@include file="/cp/layout/header.jsp" %>
 </head>
-<style>
-    .navbar-custom {
-        background-color: #5c7a9c;
-        padding: 0 10px 0 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 100;
-    }
-</style>
+
 <body>
 
 <!-- Begin page -->
@@ -30,7 +20,7 @@
             <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                 <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#"
                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/assets/images/flags/us.jpg" alt="lang-image" height="12">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/10/23/04/vietnam-26834_960_720.png" alt="lang-image" height="12">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -220,8 +210,8 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1E2tXsOrm-QAX-cwz6t&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT9XQ36lQRMTvKt2znfiFeLAtKvBrOo0IYC6lJTnyWBSTg&oe=62B03AE6"
-                         alt="user-image" class="rounded-circle">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/276166943_1879329568932762_3952387809291728812_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dcI8y0DbaRMAX9OlM5Q&_nc_ht=scontent.fhan2-3.fna&oh=00_AT9KXsBGMiHnIwZWSu3Q7ZtYAbzcTn3Dzd0P0SKjGgfhYw&oe=62B629A6"
+                         height="40px" width="40px" style="border-radius: 50%">
                     <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Phúc Nguyễn</span>
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </a>
@@ -252,7 +242,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="/cp/login" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout-variant"></i>
                         <span>Logout</span>
                     </a>
@@ -298,24 +288,28 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <form action="" method="post" class="parsley-examples" enctype="multipart/form-data"
-                              data-parsley-validate="" novalidate>
+                        <form action="" method="post" class="parsley-examples" enctype="multipart/form-data">
                             <div class="row">
 
                                 <div class="mb-3 col-6">
                                     <label for="userName" class="form-label">User Name<span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="userName" name="userName"
-                                           value="${userCreate.userName}" required>
+                                           value="${userCreate.userName}" required=""autofocus>
                                     <div class="valid-feedback">
                                         Looks Good
                                     </div>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <label for="password" class="form-label">Password<span
-                                            class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                           value="${userCreate.password}">
+                                    <label>Password <span class="text-danger">*</span></label>
+                                    <div class="input-group mb-3">
+                                        <input required="" type="password" class="form-control" id="ipnPassword" name="password" value="${userCreate.password}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="btnPassword">
+                                                <span class="fas fa-eye"></span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -324,13 +318,13 @@
                                     <label for="fullName" class="form-label">Full Name<span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="fullName" name="fullName"
-                                           value="${userCreate.fullName}">
+                                           value="${userCreate.fullName}" required="">
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label for="phone" class="form-label">Phone<span
                                             class="text-danger">*</span></label>
                                     <input type="tel" class="form-control" id="phone" name="phone"
-                                           value="${userCreate.phone}">
+                                           value="${userCreate.phone}" required="">
 
                                 </div>
                             </div>
@@ -340,13 +334,13 @@
                                     <label for="email" class="form-label">Email<span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="email" name="email"
-                                           value="${userCreate.email}">
+                                           value="${userCreate.email}" required="">
                                 </div>
                                 <div class="mb-3 col-6">
                                     <label for="address" class="form-label">Address<span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="address" name="address"
-                                           value="${userCreate.address}">
+                                           value="${userCreate.address}" required="">
                                 </div>
 
                             </div>
@@ -354,7 +348,7 @@
                                 <div class="mb-3 col-12">
                                     <label for="role" class="form-label">Role<span
                                             class="text-danger">*</span></label>
-                                    <select name="role" id="role" class="form-control" value="${userCreate.role}">
+                                    <select required="" name="role" id="role" class="form-control" value="${userCreate.role}">
                                         <option value="ADMIN">ADMIN</option>
                                         <option value="USER">USER</option>
                                     </select>
@@ -362,20 +356,15 @@
                                 <div class="mb-3 col-6">
                                     <label for="file" class="form-label">Images<span
                                             class="text-danger">*</span></label>
-                                    <input type="file" class="form-control-file" id="file" name="file"
-                                           value="${userCreate.img}">
+                                    <input type="file" id="file" name="file" required="" accept="image/jpeg, image/png">
                                     <%--                                    <input type="text" readonly value="img">--%>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group text-right mb-0">
                                     <button class="btn btn-primary waves-effect waves-light mr-1"
-                                            style="margin-bottom: 10px" type="submit">
-                                        Submit
-                                    </button>
-                                    <button type="reset" class="btn btn-secondary waves-effect"
-                                            style="margin-bottom: 10px">
-                                        Cancel
+                                            style="margin-bottom: 10px" type="submit"><i class="fa-solid fa-user-check"></i>
+                                        Create
                                     </button>
                                 </div>
                             </div>
@@ -413,6 +402,19 @@
         <!-- ============================================================== -->
 
     </div>
+    <script>
+        const ipnElement = document.querySelector('#ipnPassword')
+        const btnElement = document.querySelector('#btnPassword')
+
+        btnElement.addEventListener('click', function () {
+            const currentType = ipnElement.getAttribute('type')
+
+            ipnElement.setAttribute(
+                'type',
+                currentType === 'password' ? 'text' : 'password'
+            )
+        })
+    </script>
     <!-- END wrapper -->
 
     <!-- Right Sidebar -->

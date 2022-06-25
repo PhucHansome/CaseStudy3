@@ -1,0 +1,8 @@
+create
+    definer = root@localhost procedure get_user_by_id(IN user_id int)
+BEGIN
+    SELECT user.fullName, user.phone, user.email, user.address, user.img
+    FROM user
+    WHERE  user.userId = user_id;
+END;
+

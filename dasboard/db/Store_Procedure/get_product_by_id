@@ -1,0 +1,9 @@
+create
+    definer = root@localhost procedure get_product_by_id(IN product_id bigint)
+BEGIN
+
+    SELECT `products`.`nameProduct`, `products`.`priceProduct`, `products`.`quantityProduct`, `products`.`typeProduct`, `products`.img, `products`.`description`
+    FROM `products`
+    WHERE  `products`.productId = product_id;
+END;
+
