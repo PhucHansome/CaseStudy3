@@ -18,124 +18,229 @@
     <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">
 
 </head>
+<style>
+    html {
+        height: 100%;
+    }
 
-<body class="authentication-bg">
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: linear-gradient(#141e30, #243b55);
+    }
 
-<div class="account-pages pt-5 my-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-5">
-                <div class="account-card-box">
-                    <div class="card mb-0">
-                        <div class="card-body p-4">
+    .login-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, .5);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+        border-radius: 10px;
+    }
 
-                            <div class="text-center">
-                                <div class="my-3">
-                                    <a href="index.html">
-                                        <span><img src="/assets/images/logo.png" alt="" height="28"></span>
-                                    </a>
-                                </div>
-                                <h5 class="text-muted text-uppercase py-3 font-16">Sign In</h5>
-                                <div class="row" style="margin-top: 20px">
-                                    <div class="col-12">
-                                        <c:if test="${!requestScope['errors'].isEmpty()}">
-                                            <c:forEach items="${requestScope['errors']}" var="item">
-                                                <div class="alert alert-danger col-12">
+    .login-box h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .login-box .user-box {
+        position: relative;
+    }
+
+    .login-box .user-box input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+    }
+
+    .login-box .user-box label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .login-box .user-box input:focus ~ label,
+    .login-box .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #03e9f4;
+        font-size: 12px;
+    }
+
+    .login-box form a {
+        position: relative;
+        display: inline-block;
+        /*padding: 10px 20px;*/
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+    }
+
+    .login-box a span {
+        position: absolute;
+        display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #03e9f4);
+        animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+        50%, 100% {
+            left: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }
+    button{
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        /*margin-top: 40px;*/
+        letter-spacing: 4px;
+    }
+
+    @keyframes btn-anim2 {
+        0% {
+            top: -100%;
+        }
+        50%, 100% {
+            top: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+        0% {
+            right: -100%;
+        }
+        50%, 100% {
+            right: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+        0% {
+            bottom: -100%;
+        }
+        50%, 100% {
+            bottom: 100%;
+        }
+    }
+
+</style>
+
+<body>
+<div class="login-box">
+    <h2>Login</h2>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-12">
+            <c:if test="${!requestScope['errors'].isEmpty()}">
+                <c:forEach items="${requestScope['errors']}" var="item">
+                    <div class="alert alert-danger col-12">
                                             <span style="font-size: 15px;">
                                                     ${item}
                                             </span>
-                                                </div>
-                                            </c:forEach>
-                                        </c:if>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <form action="#" class="mt-2" method="post">
-
-                                <div class="form-group mb-3">
-                                    <input class="form-control" name="userName" type="text" required=""
-                                           placeholder="Enter your username">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <input class="form-control" name="password" type="password" required=""
-                                           id="password" placeholder="Enter your password">
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin"
-                                               checked="">
-                                        <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group text-center">
-                                    <button class="btn btn-success btn-block waves-effect waves-light" type="submit">
-                                        Log In
-                                    </button>
-                                </div>
-
-                                <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i>
-                                    Forgot your password?</a>
-
-                            </form>
-
-                            <div class="text-center mt-4">
-                                <h5 class="text-muted py-2"><b>Sign in with</b></h5>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="button"
-                                                class="btn btn-facebook waves-effect font-14 waves-light mt-3">
-                                            <i class="fab fa-facebook-f mr-1"></i> Facebook
-                                        </button>
-
-                                        <button type="button"
-                                                class="btn btn-twitter waves-effect font-14 waves-light mt-3">
-                                            <i class="fab fa-twitter mr-1"></i> Twitter
-                                        </button>
-
-                                        <button type="button"
-                                                class="btn btn-googleplus waves-effect font-14 waves-light mt-3">
-                                            <i class="fab fa-google-plus-g mr-1"></i> Google+
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div> <!-- end card-body -->
                     </div>
-                    <!-- end card -->
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-12 text-center">
-                        <p class="text-white-50">Don't have an account? <a href="pages-register.html"
-                                                                           class="text-white ml-1"><b>Sign Up</b></a>
-                        </p>
-                    </div> <!-- end col -->
-                </div>
-                <!-- end row -->
-
-            </div> <!-- end col -->
+                </c:forEach>
+            </c:if>
         </div>
-        <!-- end row -->
     </div>
-    <!-- end container -->
+    <form method="post">
+        <div class="user-box">
+            <input type="text" name="userName" required="">
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password" required="">
+            <label>Password</label>
+        </div>
+<%--        <submit></submit>--%>
+        <a>
+            <button type="submit" style="background-color: #0f1823;">
+            <span></span>
+            <span></span>
+            <span></span>
+                <span></span>
+                Submit
+            </button>
+        </a>
+    </form>
 </div>
-<!-- end page -->
 
-<!-- Vendor js -->
-<script src="/assets/js/vendor.min.js"></script>
-
-<!-- App js -->
-<script src="/assets/js/app.min.js"></script>
-<script>
-   function showAlert(){
-       if ()
-   }
-</script>
 </body>
 </html>
