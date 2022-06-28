@@ -77,6 +77,13 @@ public class CPUserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long userId = Long.parseLong(req.getParameter("id"));
         User user = userService.findById(userId);
+        List<String> errors = new ArrayList<>();
+        if (!userService.existByUserId(userId)) {
+            errors.add("UserId không tồn tại");
+        }
+        if (errors.size() > 0) {
+            req.setAttribute("errors", errors);
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/user/Edit.jsp");
         req.setAttribute("user", user);
         dispatcher.forward(req, resp);
@@ -128,7 +135,6 @@ public class CPUserServlet extends HttpServlet {
         String phone = req.getParameter("phone").trim();
         String address = req.getParameter("address").trim();
         List<String> errors = new ArrayList<>();
-//        long userId = 0;
         boolean isPhone = ValidateUtils.isNumberPhoneVailid(phone);
         if (fullName.isEmpty() ||
                 phone.isEmpty() ||
@@ -137,7 +143,7 @@ public class CPUserServlet extends HttpServlet {
         }
 //        try {
 //           userId = Long.parseLong(userIdRaw);
-            updateUser = new User(userId, fullName, phone, address, img);
+        updateUser = new User(userId, fullName, phone, address, img);
 //        }catch (NumberFormatException e){
 //            errors.add("ID không tồn tại");
 //        }
@@ -153,9 +159,10 @@ public class CPUserServlet extends HttpServlet {
         if (address.isEmpty()) {
             errors.add("Address không được để trống");
         }
-        if(!img.contains(".jpg") && !img.contains(".png")){
+        if (!img.contains(".jpg") && !img.contains(".png")) {
             errors.add("Định dạng file ảnh không đúng vui lòng chọn lại");
         }
+
         if (errors.size() == 0) {
             updateUser = new User(userId, fullName, phone, address, img);
             boolean success = false;
@@ -250,7 +257,7 @@ public class CPUserServlet extends HttpServlet {
         if (!isPassword) {
             errors.add("Password không đúng định dạng");
         }
-        if(!imageName.contains(".jpg") && !imageName.contains(".png")){
+        if (!imageName.contains(".jpg")) {
             errors.add("Định dạng file ảnh không đúng vui lòng chọn lại");
         }
         if (errors.size() == 0) {

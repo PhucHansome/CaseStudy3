@@ -109,6 +109,13 @@ public class CPProductServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long productId = Long.parseLong(req.getParameter("id"));
         Products products = productService.findById(productId);
+        List<String> errors = new ArrayList<>();
+        if (!productService.existByProductId(productId)) {
+            errors.add("UserId không tồn tại");
+        }
+        if (errors.size() > 0) {
+            req.setAttribute("errors", errors);
+        }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/product/Edit.jsp");
         req.setAttribute("products", products);
         dispatcher.forward(req, resp);
@@ -136,7 +143,7 @@ public class CPProductServlet extends HttpServlet {
                 doCreate(req, resp, imageName);
                 break;
             case "edit":
-                imageName = UploadImage.uploadImages(req, resp);
+                 imageName = UploadImage.uploadImages(req, resp);
                 doUpdate(req, resp, imageName);
                 break;
             case "search":
@@ -149,16 +156,17 @@ public class CPProductServlet extends HttpServlet {
     private void doUpdate(HttpServletRequest req, HttpServletResponse resp, String imageName) throws ServletException, IOException {
         Products updateProduct;
         RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/product/Edit.jsp");
-        long productId = Long.parseLong(req.getParameter("id"));
-        String nameProduct = req.getParameter("nameProduct");
-        String priceProduct = req.getParameter("priceProduct");
-        String quantityProduct = req.getParameter("quantityProduct");
-        String typeProduct = req.getParameter("typeProduct");
-        String description = req.getParameter("description");
+        long productId = Long.parseLong(req.getParameter("id").trim());
+        String nameProduct = req.getParameter("nameProduct").trim();
+        String priceProduct = req.getParameter("priceProduct").trim();
+        String quantityProduct = req.getParameter("quantityProduct").trim();
+        String typeProduct = req.getParameter("typeProduct").trim();
+        String description = req.getParameter("description").trim();
 //        String image = imageName;
         List<String> errors = new ArrayList<>();
         boolean isPrinceProduct = ValidateUtils.isNumberVailid(priceProduct);
         boolean isQuantityProduct = ValidateUtils.isNumberVailid(quantityProduct);
+        double checkPrice = Double.parseDouble(priceProduct);
         updateProduct = new Products(productId, nameProduct, priceProduct, quantityProduct, typeProduct, description, imageName);
 
 
@@ -186,7 +194,10 @@ public class CPProductServlet extends HttpServlet {
             errors.add("Description không được để trống ");
         }
         if (!isPrinceProduct) {
-            errors.add("Prince Product phải là một số và là một số dương");
+            errors.add("Price Product phải là một số và là một số dương");
+        }
+        if (checkPrice > 999999999){
+            errors.add("Price phải nhỏ hơn 1 tỷ đồng!");
         }
         if (!isQuantityProduct) {
             errors.add("Quantity Product phải là một số và là một số dương");
@@ -194,7 +205,7 @@ public class CPProductServlet extends HttpServlet {
         if (!typeProduct.equals("SmartPhone") && !typeProduct.equals("LapTop") && !typeProduct.equals("Accessory")) {
             errors.add("Type Không đúng, xin hãy chọn lại");
         }
-        if(!imageName.contains(".jpg") && !imageName.contains(".png")){
+        if(!imageName.contains(".jpg") ){
             errors.add("Định dạng file ảnh không đúng vui lòng chọn lại");
         }
         if (errors.size() == 0) {
@@ -269,7 +280,7 @@ public class CPProductServlet extends HttpServlet {
         if (!typeProduct.equals("SmartPhone") && !typeProduct.equals("LapTop") && !typeProduct.equals("Accessory")) {
             errors.add("Type Không đúng, xin hãy chọn lại");
         }
-        if(!imageName.contains(".jpg") && !imageName.contains(".png")){
+        if(!imageName.contains(".jpg")){
             errors.add("Định dạng file ảnh không đúng vui lòng chọn lại");
         }
         if (errors.size() == 0) {

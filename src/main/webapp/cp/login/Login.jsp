@@ -211,7 +211,7 @@
         <div class="col-12">
             <c:if test="${!requestScope['errors'].isEmpty()}">
                 <c:forEach items="${requestScope['errors']}" var="item">
-                    <div class="alert alert-danger col-12">
+                    <div class="alert alert-danger col-12" style="background-color: #f9f8fa;">
                                             <span style="font-size: 15px;">
                                                     ${item}
                                             </span>
@@ -228,6 +228,7 @@
         <div class="user-box">
             <input type="password" name="password" required="">
             <label>Password</label>
+            <input type="hidden" name="role" value="ADMIN">
         </div>
 <%--        <submit></submit>--%>
         <a>

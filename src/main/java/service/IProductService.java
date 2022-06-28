@@ -15,4 +15,6 @@ public interface IProductService extends IGeneralService<Products> {
 
     boolean selling(long productId);
 
+    boolean existByProductId(long userId);
+
 }

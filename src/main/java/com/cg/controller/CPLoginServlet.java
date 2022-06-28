@@ -32,33 +32,34 @@ public class CPLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> user =  userService.findAll();
-        String userName = req.getParameter("userName").replaceAll(" ", "").toLowerCase();;
+        List<User> user = userService.findAll();
+        String userName = req.getParameter("userName").replaceAll(" ", "").toLowerCase();
+        ;
         String password = req.getParameter("password");
+        String role = req.getParameter("role");
+        boolean checkRole = false;
+
         List<String> errors = new ArrayList<>();
         if (userService.existByUsername(userName)) {
             if (userService.existByPassWord1(password)) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/user");
-                dispatcher.forward(req, resp);
+                resp.sendRedirect("/cp/user");
             } else {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/login/Login.jsp");
                 errors.add("Username or Password sai! Xin vui lòng nhập lại!");
                 if (errors.size() > 0) {
                     req.setAttribute("errors", errors);
                 }
-                dispatcher.forward(req, resp);
+                resp.sendRedirect("/cp/login");
             }
-
         } else {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/login/Login.jsp");
             errors.add("Username or Password sai! Xin vui lòng nhập lại!");
             if (errors.size() > 0) {
                 req.setAttribute("errors", errors);
             }
-            dispatcher.forward(req, resp);
+            resp.sendRedirect("/cp/login");
         }
 
-
     }
+
 }
+
 

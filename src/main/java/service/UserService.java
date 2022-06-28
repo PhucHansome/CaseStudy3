@@ -1,8 +1,6 @@
 package service;
 
-import model.Products;
 import model.User;
-import utils.FormatVND;
 import utils.MySQLConnUtils;
 
 import java.sql.*;
@@ -45,15 +43,26 @@ public class UserService implements IUserService {
             "SELECT COUNT(*) AS COUNT " +
             "FROM user AS u " +
             "WHERE u.email = ?;";
+
+    private static String USER_EXIST_BY_ID = "" +
+            "SELECT COUNT(*) AS COUNT " +
+            "FROM user AS u " +
+            "WHERE u.userId = ?;";
+
     private static String USER_EXIST_BY_USERNAME = "" +
             "SELECT COUNT(*) AS COUNT " +
             "FROM user AS u " +
             "WHERE u.username = ?;";
 
     private static String USER_EXIST_BY_USERNAME_PASSWORD = "" +
-            "SELECT username, password  " +
+            "SELECT username, password, roles  " +
             "FROM `user` AS u  " +
             "WHERE u.password = ? ;";
+
+    private static String USER_EXIST_BY_ROLE = "" +
+            "SELECT COUNT(username, password, roles) AS COUNT   " +
+            "FROM `user` AS u  " +
+            "WHERE u.roles = ? ;";
 
     private static String SEARCH_BY_NAME_TYPE = "" +
             "SELECT * FROM user  WHERE username LIKE ? OR fullName LIKE ? OR phone LIKE ? OR email LIKE ?  ";
@@ -270,7 +279,48 @@ public class UserService implements IUserService {
             while (rs.next()) {
                 String userName = rs.getString("username");
                 String password = rs.getString("password");
-                if (userName != null && password != null) {
+                String roles = rs.getString("roles");
+                if (userName != null && password != null && roles.equals("ADMIN")) {
+                    exist = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exist;
+    }
+
+    @Override
+    public boolean existByUserId(long userId) {
+        boolean exist = false;
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            PreparedStatement statement = connection.prepareCall(USER_EXIST_BY_ID);
+            statement.setLong(1, userId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int count = rs.getInt("count");
+                if (count > 0) {
+                    exist = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exist;
+    }
+
+    @Override
+    public boolean existByRoles(String Roles) {
+        boolean exist = false;
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            PreparedStatement statement = connection.prepareCall(USER_EXIST_BY_ROLE);
+            statement.setString(1, Roles);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int count = rs.getInt("count");
+                if (count > 0) {
                     exist = true;
                 }
             }

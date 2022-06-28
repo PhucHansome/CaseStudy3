@@ -316,12 +316,12 @@
                                 <input type="text" class="form-control" name="description" required=""  value="${products.description}">
                             </div>
                             <div class="mb-3 col-6">
-                                <span>Images</span>
-                                <input type="file" class="form-control-file" name="file" required  accept="image/jpeg, image/png">
+                                <label for="file" class="form-label">Images<span class="text-danger" >*</span></label>
+                                <input type="file" class="form-control-file" id="file" name="file" required="" accept="image/jpeg, image/png">
                             </div>
                             <div class="row">
                                 <div class="form-group text-right mb-0">
-                                    <button href="/cp/user?action=edit&id=${products.productId}" class="btn btn-primary waves-effect waves-light mr-1" type="submit"
+                                    <button href="/cp/product?action=edit&id=${products.productId}" class="btn btn-primary waves-effect waves-light mr-1" type="submit"
                                             style="margin-left: 25px;">
                                        Save
                                     </button>

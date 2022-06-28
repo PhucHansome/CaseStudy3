@@ -6,7 +6,6 @@ import utils.MySQLConnUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -56,6 +55,10 @@ public class ProductService implements IProductService {
             "UPDATE casestudymodule3.`products` SET status = 'Dừng bán', updateDate = now()  WHERE productId = ?";
     private static String SETUP_SELLING_PRODUCT = "" +
             "UPDATE casestudymodule3.`products` SET status = 'Đang bán', updateDate = now() WHERE productId = ?";
+    private static String PRODUCT_EXIST_BY_ID = "" +
+            "SELECT COUNT(*) AS COUNT " +
+            "FROM `products` AS p " +
+            "WHERE p.productId = ?;";
 
     @Override
     public boolean create(Products products) {
@@ -223,6 +226,26 @@ public class ProductService implements IProductService {
             e.printStackTrace();
         }
         return setupSelling;
+    }
+
+    @Override
+    public boolean existByProductId(long userId) {
+        boolean exist = false;
+        try {
+            Connection connection = MySQLConnUtils.getConnection();
+            PreparedStatement statement = connection.prepareCall(PRODUCT_EXIST_BY_ID);
+            statement.setLong(1, userId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int count = rs.getInt("count");
+                if (count > 0) {
+                    exist = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exist;
     }
 
 
