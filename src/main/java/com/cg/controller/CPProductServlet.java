@@ -101,6 +101,7 @@ public class CPProductServlet extends HttpServlet {
         long productId = Long.parseLong(req.getParameter("id"));
         productService.remove(productId);
         List<Products> productsList = productService.findAll();
+        req.setAttribute("success", true);
         req.setAttribute("productList", productsList);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/cp/product/List.jsp");
         dispatcher.forward(req, resp);
@@ -282,6 +283,10 @@ public class CPProductServlet extends HttpServlet {
         }
         if(!imageName.contains(".jpg")){
             errors.add("Định dạng file ảnh không đúng vui lòng chọn lại");
+        }
+        double checkPrice = Double.parseDouble(priceProduct);
+        if (checkPrice >  999999999){
+            errors.add("Price phải nhỏ hơn 1 tỷ đồng!");
         }
         if (errors.size() == 0) {
             products = new Products(nameProduct, priceProduct, quantityProduct, typeProduct, description, imageName);

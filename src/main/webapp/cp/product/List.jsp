@@ -84,6 +84,9 @@
         -moz-transform: rotateX(-90deg);
         transform: rotateX(-90deg);
     }
+    td {
+        font-size: 15px;
+    }
 
 
 </style>
@@ -380,9 +383,15 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-7"></div>
+                    <div class="col-lg-7">
+                        <c:if test="${requestScope['success'] == true}">
+                            <ul class="alert alert-secondary col-7">
+                                <li style="font-size: 15px">Xóa thành công</li>
+                            </ul>
+                        </c:if>
+                    </div>
                     <div class="col-lg-1" style="margin-left: -11px;">
-                        <a href="/cp/user?action=create">
+                        <a href="/cp/product?action=create">
                             <button type="button" class="custom-btn btn-12 float-right" style="color: white">
                                 <span><i class="fa-solid fa-hand-point-right"></i><b>Click!</b></span>
                                 <span><b>Create Product</b></span>
@@ -390,6 +399,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-12">
                         <table id="datatable" class="table table-hover"
@@ -466,6 +476,7 @@
                             </c:forEach>
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
